@@ -6,7 +6,8 @@ import com.example.workpost.services.ResipeService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RestController("/recipe")
+@RestController()
+@RequestMapping("/recipe")
 public class RecipeController {
     private ResipeService recipes;
 
@@ -14,7 +15,7 @@ public class RecipeController {
         this.recipes = recipes;
     }
 
-    @PostMapping
+    @PostMapping()
     public ResponseEntity<Integer>addRecipe(@RequestBody Recipe recipe){
         int id =  recipes.addRecipe(recipe);
         return  ResponseEntity.ok(id);

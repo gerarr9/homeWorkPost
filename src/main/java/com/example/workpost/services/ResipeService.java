@@ -1,7 +1,7 @@
 package com.example.workpost.services;
 
-
 import com.example.workpost.model.Recipe;
+import org.springframework.stereotype.Service;
 
 import java.util.Map;
 

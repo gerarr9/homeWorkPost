@@ -6,7 +6,8 @@ import com.example.workpost.services.IngridientService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RestController("/ingridients")
+@RestController()
+@RequestMapping("/ingridients")
 public class IngridientConsolle {
     private IngridientService ingridients;
 
@@ -14,7 +15,7 @@ public class IngridientConsolle {
         this.ingridients = ingridients;
     }
 
-    @PostMapping
+    @PostMapping()
     public ResponseEntity<Integer> addProduct(@RequestBody Ingridient ingridient){
         int id = ingridients.addIngridient(ingridient);
         return  ResponseEntity.ok(id);
