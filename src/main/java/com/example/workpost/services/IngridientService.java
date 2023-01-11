@@ -16,7 +16,8 @@ public interface IngridientService {
 
     Ingridient getIngridient(Integer id);
 
-    String getName();
-    int getQuantity();
-    String getDimension();
+
+    Ingridient editIngridient(Integer id, Ingridient ingridient);
+
+    Ingridient deletIngridient(Integer id);
 }

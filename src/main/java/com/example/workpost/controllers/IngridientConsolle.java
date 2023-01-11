@@ -26,4 +26,15 @@ public class IngridientConsolle {
       Ingridient ingridient =  ingridients.getIngridient(id);
       return  ResponseEntity.ok(ingridient);
     }
+
+    @PutMapping("/{id}")
+    public  ResponseEntity<Ingridient> ingridientEntity(@PathVariable int id ,@RequestBody Ingridient ingridient){
+        Ingridient ingridient1 = ingridients.editIngridient(id,ingridient);
+        return  ResponseEntity.ok(ingridient1);
+    }
+    @DeleteMapping("/{id}")
+    public  ResponseEntity ingridientEntity(@PathVariable int id ){
+        Ingridient ingridient1 = ingridients.deletIngridient(id);
+        return  ResponseEntity.ok(ingridient1);
+    }
 }

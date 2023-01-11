@@ -10,4 +10,8 @@ public interface ResipeService {
 
 
     Recipe  getRecipe(Integer id);
+
+    Recipe editRecipe(Integer id, Recipe recipe);
+
+    Recipe deletRecipe(Integer id);
 }

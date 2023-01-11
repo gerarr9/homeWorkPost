@@ -7,55 +7,46 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
+
 @Service
 public class IngridientImpl implements IngridientService {
-  private   String name;
-  private   int quantity;
-   private String dimension;
-
-   public  static  int idGenerator =0;
 
 
-  public   Map<Integer, Ingridient> ingridientMap = new HashMap<>();
+    public static int idGenerator = 0;
 
-    public  IngridientImpl(){
+
+    public Map<Integer, Ingridient> ingridientMap = new HashMap<>();
+
+    public IngridientImpl() {
 
     }
 
-    public IngridientImpl(String name, int quantity, String dimension) {
-        this.name = name;
-        this.quantity = quantity;
-        this.dimension = dimension;
-    }
-@Override
-    public  int   addIngridient(Ingridient ingridient){
+
+    @Override
+    public int addIngridient(Ingridient ingridient) {
         int id = idGenerator++;
-        ingridientMap.put(id,ingridient);
+        ingridientMap.put(id, ingridient);
         return id;
     }
 
     @Override
-     public Ingridient getIngridient(Integer id){
-       return ingridientMap.get(id);
+    public Ingridient getIngridient(Integer id) {
+        return ingridientMap.get(id);
+    }
+    @Override
+    public Ingridient editIngridient(Integer id, Ingridient ingridient){
+        if(ingridientMap.containsKey(id)){
+        ingridientMap.put(id,ingridient);
+        }
+        return null;
+    }
+    @Override
+    public  Ingridient deletIngridient(Integer id){
+        if (ingridientMap.containsKey(id)){
+            return  ingridientMap.remove(id);
+        }
+        return  null;
     }
 
-    @Override
-    public String getName() {
-        return this.name;
-    }
 
-    @Override
-    public int getQuantity() {
-        return this.quantity;
-    }
-
-    @Override
-    public String getDimension() {
-        return this.dimension;
-    }
-
-    @Override
-    public String toString() {
-        return "Продукт: "+ getName()+", количество "+ getQuantity() +" "+getDimension();
-    }
 }
