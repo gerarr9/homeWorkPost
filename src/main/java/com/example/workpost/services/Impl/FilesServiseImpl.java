@@ -4,6 +4,7 @@ import com.example.workpost.services.FilesServise;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -39,7 +40,8 @@ public class FilesServiseImpl implements FilesServise {
         }
     }
 
-    private boolean cleanDataFile() {
+    @Override
+    public boolean cleanDataFile() {
         try {
             Path path = Path.of(dataFilePath,dataFileName);
             Files.deleteIfExists(path);
@@ -69,7 +71,8 @@ public class FilesServiseImpl implements FilesServise {
         }
     }
 
-    private  boolean cleanRecipeFile(){
+    @Override
+    public   boolean cleanRecipeFile(){
         try {
             Path path = Path.of(recipeFilePath,recipeFileName);
             Files.deleteIfExists(path);
@@ -79,5 +82,14 @@ public class FilesServiseImpl implements FilesServise {
             e.printStackTrace();
             return  false;
         }
+
+    }
+    @Override
+    public File getDataFile(){
+        return  new  File(dataFilePath + "/" + dataFileName);
+    }
+    @Override
+    public  File getRecipeFile(){
+        return  new  File (recipeFilePath +"/"+recipeFileName);
     }
 }
