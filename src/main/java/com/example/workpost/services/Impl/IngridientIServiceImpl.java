@@ -9,11 +9,12 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
 
+
 import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class IngridientImpl implements IngridientService {
+public class IngridientIServiceImpl implements IngridientService {
 
     final private FilesServise filesServise;
     public static int idGenerator = 0;
@@ -22,7 +23,7 @@ public class IngridientImpl implements IngridientService {
     public Map<Integer, Ingridient> ingridientMap = new HashMap<>();
 
 
-    public IngridientImpl(FilesServise filesServise) {
+    public IngridientIServiceImpl(FilesServise filesServise) {
 
         this.filesServise = filesServise;
     }

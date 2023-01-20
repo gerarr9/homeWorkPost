@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 @RestController
 @RequestMapping("/files")
@@ -51,20 +53,7 @@ public class FilesController {
             return ResponseEntity.noContent().build();
         }
     }
-    @GetMapping(value = "/download")
-    public ResponseEntity<InputStreamResource> dowloadRecipeFile1() throws FileNotFoundException {
-        File file = filesServise.getRecipeFile();
-        if (file.exists()) {
-            InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
-            return ResponseEntity.ok()
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .contentLength(file.length())
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"RecipeData.txt\"")
-                    .body(resource);
-        } else {
-            return ResponseEntity.noContent().build();
-        }
-    }
+
 
 
     @PostMapping(value = "/import/ingridients",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)

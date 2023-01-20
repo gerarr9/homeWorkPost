@@ -1,6 +1,7 @@
 package com.example.workpost.services;
 
 import java.io.File;
+import java.nio.file.Path;
 
 public interface FilesServise {
     boolean saveToFile(String json);
@@ -18,4 +19,6 @@ public interface FilesServise {
     File getDataFile();
 
     File getRecipeFile();
+
+    Path createTempFile(String suffix);
 }

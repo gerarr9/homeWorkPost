@@ -15,10 +15,10 @@ public class Recipe {
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(name).append("\n")
-                .append(time).append(" минут").append("\n");
-        return stringBuilder.toString();
-
+        return "\n" +
+                name + '\n' +
+                "Время приготовления: " + time+ " " + "\n" +
+                "Ингредиенты: " + "\n" + ingridient + "\n" +
+                "Инструкция приготовления: " + steps + "\n";
     }
 }

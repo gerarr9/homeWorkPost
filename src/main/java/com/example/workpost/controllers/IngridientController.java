@@ -2,7 +2,6 @@ package com.example.workpost.controllers;
 
 
 import com.example.workpost.model.Ingridient;
-import com.example.workpost.services.FilesServise;
 import com.example.workpost.services.IngridientService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -15,12 +14,12 @@ import org.springframework.web.bind.annotation.*;
 @RestController()
 @RequestMapping("/ingridients")
 @Tag(name="Ингридиенты", description = "Добавление,удаление,получение, изменение ингридиентов")
-public class IngridientConsolle {
+public class IngridientController {
 
     private IngridientService ingridients;
 
 
-    public IngridientConsolle(IngridientService ingridients) {
+    public IngridientController(IngridientService ingridients) {
         this.ingridients = ingridients;
     }
 

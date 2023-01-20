@@ -92,4 +92,12 @@ public class FilesServiseImpl implements FilesServise {
     public  File getRecipeFile(){
         return  new  File (recipeFilePath +"/"+recipeFileName);
     }
+    @Override
+    public Path createTempFile(String suffix) {
+        try {
+            return Files.createTempFile(Path.of(dataFilePath), "tenpfile", suffix);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
